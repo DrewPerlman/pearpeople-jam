@@ -5,13 +5,13 @@ using UnityEngine;
 public class VacuumBehavior : MonoBehaviour
 {
 	public float vicinityRadius = 1f;
-	public GameObject spriteMaskPrefab;
-	public GameObject spriteMaskParent;
+	//public GameObject spriteMaskPrefab;
+	//public GameObject spriteMaskParent;
 
     // Start is called before the first frame update
     void Start()
     {
-		InvokeRepeating("CreateDirtLayerSpriteMask", 0f, .05f);
+		//InvokeRepeating("CreateDirtLayerSpriteMask", 0f, .05f);
     }
 
     // Update is called once per frame
@@ -28,9 +28,9 @@ public class VacuumBehavior : MonoBehaviour
 		}
 	}
 
-	private void CreateDirtLayerSpriteMask()
-	{
-		GameObject spriteInstance = Instantiate(spriteMaskPrefab, this.transform.position, Quaternion.identity);
-		spriteInstance.transform.parent = spriteMaskParent.transform;
-	}
+	//private void CreateDirtLayerSpriteMask()
+	//{
+	//	GameObject spriteInstance = Instantiate(spriteMaskPrefab, this.transform.position, Quaternion.identity);
+	//	spriteInstance.transform.parent = spriteMaskParent.transform;
+	//}
 }
