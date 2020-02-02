@@ -25,6 +25,17 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private GameObject controlMenu;
 
+    private int selection = 0;
+    private float selectionTimer = 0.1f;
+    [SerializeField]
+    private List<GameObject> menuItems = new List<GameObject>();
+    [SerializeField]
+    private List<Button> menuButtons = new List<Button>();
+
+    private void Awake(){
+    	UpdateSelection();
+    }
+
     private void Update(){
     	// FillP1(Input.GetKey(KeyCode.Z));
     	// FillP2(Input.GetKey(KeyCode.M));
@@ -34,6 +45,53 @@ public class MainMenuManager : MonoBehaviour
     	// if(StartGame()){
     	// 	SceneManager.LoadScene(LevelToLoad);
     	// }
+    	if(selectionTimer > 0f){
+    		selectionTimer -= Time.deltaTime;
+    	}
+    	if(!controlMenu.activeInHierarchy){
+	    	if(Input.GetAxis("Vertical") > 0f && selectionTimer <= 0f){
+	    		selection -= 1;
+	    		if(selection < 0){
+	    			selection = menuItems.Count - 1;
+	    		}
+	    		selectionTimer = 0.3f;
+	    		UpdateSelection();
+	    	} else if(Input.GetAxis("Vertical") < 0f && selectionTimer <= 0f){
+				selection += 1;
+				if(selection > menuItems.Count - 1){
+	    			selection = 0;
+	    		}
+	    		selectionTimer = 0.3f;
+	    		UpdateSelection();
+	    	}
+    	}
+
+    	if(Input.GetKeyDown(KeyCode.Space)){
+    		if(controlMenu.activeInHierarchy){
+    				HideControls();
+    			} else{
+    				menuButtons[selection].onClick.Invoke();
+    			}
+    	}
+    	if(Input.GetKeyDown(KeyCode.Escape)){
+    		if(controlMenu.activeInHierarchy){
+    				HideControls();
+    			} else{
+    				ExitGame();
+    			}
+    	}
+    }
+
+    private void UpdateSelection(){
+    	for(int i=0;i<menuItems.Count;i++){
+    		if(i == selection){
+    				menuItems[i].SetActive(true);
+    			} else{
+    				menuItems[i].SetActive(false);
+    				print(menuItems[i]);
+    			}
+    	}
+    	print(selection);
     }
 
     private void FillP1(bool keydown){
