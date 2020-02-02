@@ -5,13 +5,13 @@ using UnityEngine;
 public class GarbageBehavior : MonoBehaviour
 {
 	public bool movingTowardsVacuum = false;
-	public float moveTowardsSpeed = .5f;
+	private VacuumBehavior theVacuum;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
-        
-    }
+		theVacuum = FindObjectOfType<VacuumBehavior>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -24,8 +24,8 @@ public class GarbageBehavior : MonoBehaviour
 
 	private void moveTowardsVacuum()
 	{
-		Vector2 target = FindObjectOfType<VacuumBehavior>().transform.position;
-		transform.position = Vector2.MoveTowards(transform.position, target, moveTowardsSpeed);
+		Vector2 target = theVacuum.transform.position;
+		transform.position = Vector2.MoveTowards(transform.position, target, theVacuum.moveTowardsSpeed);
 		if (Vector2.Distance(this.transform.position, target) < 0.2f)
 		{
 			Destroy(this.gameObject);
