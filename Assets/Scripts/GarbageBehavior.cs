@@ -7,11 +7,15 @@ public class GarbageBehavior : MonoBehaviour
 	public bool movingTowardsVacuum = false;
 	private VacuumBehavior theVacuum;
 	private float movingTimer = 0.0f;
+	private float destroyTimer = 0.0f;
+	private AudioManager am;
+	private bool destroyy;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		theVacuum = FindObjectOfType<VacuumBehavior>();
+		am = FindObjectOfType<AudioManager>();
 	}
 
     // Update is called once per frame
@@ -20,6 +24,10 @@ public class GarbageBehavior : MonoBehaviour
 		if (movingTowardsVacuum)
 		{
 			moveTowardsVacuum();
+		}
+		if (destroyy)
+		{
+			DestroySelf();
 		}
     }
 
@@ -33,12 +41,21 @@ public class GarbageBehavior : MonoBehaviour
 		}
 		Vector2 target = theVacuum.transform.position;
 		transform.position = Vector2.MoveTowards(transform.position, target, theVacuum.moveTowardsSpeed);
-		if (Vector2.Distance(this.transform.position, target) < 0.2f)
+		if (Vector2.Distance(this.transform.position, target) < 0.2f && destroyy == false)
 		{
-			Destroy(this.gameObject);
-			if(ProgressBar.instance != null){
+			if (ProgressBar.instance != null)
+			{
 				ProgressBar.instance.RemoveEntry(this.gameObject);
 			}
+			GetComponentInChildren<SpriteRenderer>().enabled = false;
+			GetComponent<AudioSource>().Play();
+			destroyy = true;
 		}
+	}
+
+	private void DestroySelf()
+	{
+		destroyTimer += Time.deltaTime;
+		if (destroyTimer > 1f) { Destroy(this.gameObject); }
 	}
 }
