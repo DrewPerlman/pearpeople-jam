@@ -24,7 +24,6 @@ public class GarbageBehavior : MonoBehaviour
 
 	private void moveTowardsVacuum()
 	{
-		print("I'M Moving");
 		Vector2 target = FindObjectOfType<VacuumBehavior>().transform.position;
 		transform.position = Vector2.MoveTowards(transform.position, target, moveTowardsSpeed);
 		if (Vector2.Distance(this.transform.position, target) < 0.2f)

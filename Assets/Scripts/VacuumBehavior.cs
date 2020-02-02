@@ -11,7 +11,7 @@ public class VacuumBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		InvokeRepeating("CreateDirtLayerSpriteMask", 0f, .1f);
+		InvokeRepeating("CreateDirtLayerSpriteMask", 0f, .05f);
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class VacuumBehavior : MonoBehaviour
 
 	}
 
-	private void OnTriggerEnter2D (Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Garbage")
 		{
@@ -30,7 +30,6 @@ public class VacuumBehavior : MonoBehaviour
 
 	private void CreateDirtLayerSpriteMask()
 	{
-		print("CREATING INSTNACE");
 		GameObject spriteInstance = Instantiate(spriteMaskPrefab, this.transform.position, Quaternion.identity);
 		spriteInstance.transform.parent = spriteMaskParent.transform;
 	}
