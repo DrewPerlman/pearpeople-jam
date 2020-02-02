@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc22d2dab609418f9b977dc8f8d2103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
 --- !u!1 &4950814733808547784
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,9 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vicinityRadius: 1
-  spriteMaskPrefab: {fileID: 7880591136442003386, guid: f0f695fd92719574fa2e9cefcba57d9d,
-    type: 3}
-  spriteMaskParent: {fileID: 0}
+  moveTowardsSpeed: 0.08
 --- !u!58 &6176202637966104165
 CircleCollider2D:
   m_ObjectHideFlags: 0
