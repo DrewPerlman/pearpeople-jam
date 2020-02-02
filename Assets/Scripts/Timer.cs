@@ -6,6 +6,9 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+	public static Timer instance;
+
+
 	[SerializeField]
     private TextMeshProUGUI timerText;
     [SerializeField]
@@ -19,6 +22,14 @@ public class Timer : MonoBehaviour
     private float timeRemaining;
     private bool photoCleaned;
     private bool started;
+
+    private void Awake(){
+    	if(instance == null){
+    		instance = this;
+    	} else{
+    		Destroy(this.gameObject);
+    	}
+    }
 
     private void Start(){
     	thanksScreen.SetActive(false);
@@ -40,20 +51,22 @@ public class Timer : MonoBehaviour
     }
 
     private void Update(){
-    	if(timeRemaining > 0f && !started){
-    		timeRemaining -= Time.deltaTime;
-    		startText.text = Mathf.Ceil(timeRemaining).ToString();
-    	} else if(timeRemaining <= 0f && !started){
-    		StartGame();
-    	}
+    	if(!photoCleaned){
+	    	if(timeRemaining > 0f && !started){
+	    		timeRemaining -= Time.deltaTime;
+	    		startText.text = Mathf.Ceil(timeRemaining).ToString();
+	    	} else if(timeRemaining <= 0f && !started){
+	    		StartGame();
+	    	}
 
-    	if(timeRemaining > 0f && started){
-    		timeRemaining -= Time.deltaTime;
-    		DisplayTime();
-    	} else if(timeRemaining <= 0f && started){
-    		EndStage(photoCleaned);
-    		timeRemaining = 0f;
-    		DisplayTime();
+	    	if(timeRemaining > 0f && started){
+	    		timeRemaining -= Time.deltaTime;
+	    		DisplayTime();
+	    	} else if(timeRemaining <= 0f && started){
+	    		EndStage(photoCleaned);
+	    		timeRemaining = 0f;
+	    		DisplayTime();
+	    	}
     	}
     }
 
@@ -84,5 +97,6 @@ public class Timer : MonoBehaviour
 
     public void CleanPhoto(){
     	photoCleaned = true;
+    	EndStage(photoCleaned);
     }
 }
