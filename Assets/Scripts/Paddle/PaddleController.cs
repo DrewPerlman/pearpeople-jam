@@ -6,12 +6,19 @@ public class PaddleController : MonoBehaviour
     [SerializeField] private bool invertDirection = false;
     [SerializeField] [Range(0.0f, 180.0f)] private float allowedTravelAngle = 90.0f;
     [SerializeField] [Range(-180.0f, 180.0f)] private float initialAngle = 0.0f;
+    [SerializeField] [Range(0.0f, 10.0f)] private float smoothing = 5.0f;
+    [SerializeField] [Range(1.0f, 100.0f)] private float acceleration = 10.0f;
 
     private float radius = 1.0f;
-    private float currentAngle = 0.0f;
+
     private float inputDirection = 0.0f;
+    private float currentAngle = 0.0f;
+    private float currentVelocity = 0.0f;
 
     private Vector2 initialAxis = Vector2.zero;
+
+    float minAngle = 0.0f;
+    float maxAngle = 0.0f;
 
     private void OnValidate()
     {
@@ -22,6 +29,8 @@ public class PaddleController : MonoBehaviour
     {
         radius = GetRadiusFromRoot();
         initialAxis = GetDirectionFromSignedAngle(initialAngle * Mathf.Deg2Rad, Vector2.left);
+        minAngle = allowedTravelAngle * Mathf.Deg2Rad * -1.0f;
+        maxAngle = -minAngle;
         SetTransformFromAngle();
     }
 
@@ -86,11 +95,21 @@ public class PaddleController : MonoBehaviour
     private void UpdateCurrentAngle()
     {
         currentAngle = Mathf.Deg2Rad * Vector2.SignedAngle(initialAxis, transform.localPosition);
-        float inverted = (invertDirection) ? -1.0f : 1.0f;
-        float deltaAngle = movementSpeed * inputDirection * Time.deltaTime * inverted;
-        float nextAngle = currentAngle + deltaAngle;
 
-        currentAngle = Mathf.Clamp(nextAngle, allowedTravelAngle * Mathf.Deg2Rad * -1.0f, allowedTravelAngle * Mathf.Deg2Rad);
+        float inverted = (invertDirection) ? -1.0f : 1.0f;
+        float force = inputDirection * inverted * acceleration;
+        if (force == 0.0f) {
+            force = -currentVelocity / Time.deltaTime;
+            if (smoothing != 0.0f) {
+                force /= smoothing;
+            }
+        }
+
+        float velocity = currentVelocity + force * Time.deltaTime;
+        currentVelocity = Mathf.Clamp(velocity, -movementSpeed, movementSpeed);
+
+        float nextAngle = currentAngle + currentVelocity * Time.deltaTime;
+        currentAngle = Mathf.Clamp(nextAngle, minAngle, maxAngle);
 
         transform.localPosition = GetDirectionFromSignedAngle(currentAngle, initialAxis) * radius;
     }
