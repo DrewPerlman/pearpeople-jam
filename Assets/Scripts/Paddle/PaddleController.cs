@@ -4,7 +4,7 @@ public class PaddleController : MonoBehaviour
 {
     [SerializeField] [Range(0.0f, 10.0f)] private float movementSpeed = 1.0f;
     [SerializeField] private bool invertDirection = false;
-    [SerializeField] [Range(0.0f, 1.0f)] private float allowedTravelAngle = 0.5f;
+    [SerializeField] [Range(0.0f, 180.0f)] private float allowedTravelAngle = 90.0f;
     [SerializeField] [Range(-180.0f, 180.0f)] private float initialAngle = 0.0f;
 
     private float radius = 1.0f;
@@ -41,8 +41,8 @@ public class PaddleController : MonoBehaviour
         Vector3 root = transform.root.transform.position;
         Vector3 pos = transform.position;
         Vector3 start = (Vector3)initialAxis * radius + root;
-        Vector3 min = (Vector3)GetDirectionFromSignedAngle(allowedTravelAngle * Mathf.PI, initialAxis) * radius + root;
-        Vector3 max = (Vector3)GetDirectionFromSignedAngle(-allowedTravelAngle * Mathf.PI, initialAxis) * radius + root;
+        Vector3 min = (Vector3)GetDirectionFromSignedAngle(allowedTravelAngle * Mathf.Deg2Rad, initialAxis) * radius + root;
+        Vector3 max = (Vector3)GetDirectionFromSignedAngle(-allowedTravelAngle * Mathf.Deg2Rad, initialAxis) * radius + root;
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(root, pos);
@@ -90,7 +90,7 @@ public class PaddleController : MonoBehaviour
         float deltaAngle = movementSpeed * inputDirection * Time.deltaTime * inverted;
         float nextAngle = currentAngle + deltaAngle;
 
-        currentAngle = Mathf.Clamp(nextAngle, allowedTravelAngle * Mathf.PI * -1.0f, allowedTravelAngle * Mathf.PI);
+        currentAngle = Mathf.Clamp(nextAngle, allowedTravelAngle * Mathf.Deg2Rad * -1.0f, allowedTravelAngle * Mathf.Deg2Rad);
 
         transform.localPosition = GetDirectionFromSignedAngle(currentAngle, initialAxis) * radius;
     }
