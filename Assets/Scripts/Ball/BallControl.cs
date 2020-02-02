@@ -11,7 +11,7 @@ public class BallControl : MonoBehaviour
     void Start()
     {
       rb2d = GetComponent<Rigidbody2D>();
-      Invoke("GoBall", 2);
+      Invoke("GoBall", 4);
     }
 
     // Update is called once per frame
