@@ -11,6 +11,8 @@ public class ProgressBar : MonoBehaviour
     private int garbageCount;
     [SerializeField]
     private Image bar;
+    [SerializeField]
+    private Image currentPolaroid;
 
     private void Awake(){
     	if(instance == null){
@@ -21,11 +23,7 @@ public class ProgressBar : MonoBehaviour
     }
 
     private void Start(){
-    	garbageList.AddRange(GameObject.FindGameObjectsWithTag("Garbage"));
-    	garbageCount = garbageList.Count;
-    	float amt = 1 - garbageList.Count/garbageCount;
-    	print(amt.ToString());
-    	UpdateBar();
+    	StartCoroutine(SetupBar());
     }
 
     public void RemoveEntry(GameObject entry){
@@ -39,5 +37,17 @@ public class ProgressBar : MonoBehaviour
     	if(bar.fillAmount >= 1f && Timer.instance != null){
     		Timer.instance.CleanPhoto();
     	}
+
+        Color newAlpha = currentPolaroid.color;
+        newAlpha.a = bar.fillAmount;
+        currentPolaroid.color = newAlpha;
+    }
+
+    private IEnumerator SetupBar(){
+        yield return new WaitForSeconds(1f);
+        garbageList.AddRange(GameObject.FindGameObjectsWithTag("Garbage"));
+        garbageCount = garbageList.Count;
+        float amt = 1 - garbageList.Count/garbageCount;
+        UpdateBar();
     }
 }

@@ -46,8 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   invertDirection: 0
-  allowedTravelAngle: 85
+  allowedTravelAngle: 90
   initialAngle: 0
+  smoothing: 5
+  acceleration: 50
 --- !u!1 &5160364144723290491
 GameObject:
   m_ObjectHideFlags: 0
