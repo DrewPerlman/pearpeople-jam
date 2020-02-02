@@ -9,11 +9,17 @@ public class Timer : MonoBehaviour
     private TextMeshProUGUI timerText;
     [SerializeField]
     private TextMeshProUGUI startText;
+    [SerializeField]
+    private GameObject winScreen;
+    [SerializeField]
+    private GameObject loseScreen;
     private float timeRemaining;
     private bool photoCleaned;
     private bool started;
 
     private void Start(){
+    	winScreen.SetActive(false);
+    	loseScreen.SetActive(false);
     	Initialize();
     }
 
@@ -50,10 +56,10 @@ public class Timer : MonoBehaviour
     private void EndStage(bool winState){
     	if(winState){
     			//"You can move on to the next stage"
-
+    			winScreen.SetActive(true);
     		} else{
     			//"You should redo this stage"
-
+    			loseScreen.SetActive(true);
     		}
     }
 
