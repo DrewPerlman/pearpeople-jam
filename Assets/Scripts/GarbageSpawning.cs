@@ -27,10 +27,10 @@ public class GarbageSpawning : MonoBehaviour
 		//	((newPosition.x > -0.5f || newPosition.x < 0.5f) && newPosition.y > -0.5f)
 		//)
 		//{
-		//while (Vector2.Distance(newPosition, theBall.transform.position) < 0.8f)
-		//{
+		while (Vector2.Distance(newPosition, theBall.transform.position) < 0.8f)
+		{
 			newPosition = someObjectPosition + Random.insideUnitCircle * 3.7f;
-		//}
+		}
 		//}
 		GameObject garbageInstance = Instantiate(garbagePrefab, newPosition, Quaternion.identity);
 	}

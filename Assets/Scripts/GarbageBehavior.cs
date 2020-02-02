@@ -6,6 +6,7 @@ public class GarbageBehavior : MonoBehaviour
 {
 	public bool movingTowardsVacuum = false;
 	private VacuumBehavior theVacuum;
+	private float movingTimer = 0.0f;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,6 +25,12 @@ public class GarbageBehavior : MonoBehaviour
 
 	private void moveTowardsVacuum()
 	{
+		movingTimer += Time.deltaTime;
+		if (movingTimer > 1)
+		{
+			movingTimer = 0;
+			movingTowardsVacuum = false;
+		}
 		Vector2 target = theVacuum.transform.position;
 		transform.position = Vector2.MoveTowards(transform.position, target, theVacuum.moveTowardsSpeed);
 		if (Vector2.Distance(this.transform.position, target) < 0.2f)
