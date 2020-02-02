@@ -8,6 +8,8 @@ public class PaddleController : MonoBehaviour
     [SerializeField] [Range(-180.0f, 180.0f)] private float initialAngle = 0.0f;
     [SerializeField] [Range(0.0f, 10.0f)] private float smoothing = 5.0f;
     [SerializeField] [Range(1.0f, 100.0f)] private float acceleration = 10.0f;
+    [SerializeField] private InputManager InputManager;
+  
 
     private float radius = 1.0f;
 
@@ -72,18 +74,19 @@ public class PaddleController : MonoBehaviour
 
     private void SetInputDirection()
     {
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
-            inputDirection = 0.0f;
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            inputDirection = -1.0f;
-        }
-        else if (Input.GetKey(KeyCode.D)) {
-            inputDirection = 1.0f;
-        }
-        else {
-            inputDirection = 0.0f;
-        }
+        //if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
+        //    inputDirection = 0.0f;
+        //}
+        //if (Input.GetKey(KeyCode.A)) {
+        //    inputDirection = -1.0f;
+        //}
+        //else if (Input.GetKey(KeyCode.D)) {
+        //    inputDirection = 1.0f;
+        //}
+        //else {
+        //    inputDirection = 0.0f;
+        //}
+        inputDirection = InputManager.Direction;
     }
 
     private void SetTransformFromAngle()
