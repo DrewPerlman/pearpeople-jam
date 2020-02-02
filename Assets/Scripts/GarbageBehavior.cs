@@ -29,6 +29,9 @@ public class GarbageBehavior : MonoBehaviour
 		if (Vector2.Distance(this.transform.position, target) < 0.2f)
 		{
 			Destroy(this.gameObject);
+			if(ProgressBar.instance != null){
+				ProgressBar.instance.RemoveEntry(this.gameObject);
+			}
 		}
 	}
 }
