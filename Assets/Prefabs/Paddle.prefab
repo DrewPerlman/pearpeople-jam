@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5160364143859980920}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.5, y: 0, z: 0}
+  m_LocalPosition: {x: -3.705, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5160364144723290488}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   invertDirection: 0
-  allowedTravelAngle: 90
+  allowedTravelAngle: 85
   initialAngle: 0
 --- !u!1 &5160364144723290491
 GameObject:
@@ -72,13 +72,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5160364144723290491}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.051, z: 0}
+  m_LocalScale: {x: 0.5277048, y: 0.5277048, z: 0.5277048}
   m_Children: []
   m_Father: {fileID: 5160364143859980921}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &5160364144723290489
 SpriteRenderer:
   m_ObjectHideFlags: 0
