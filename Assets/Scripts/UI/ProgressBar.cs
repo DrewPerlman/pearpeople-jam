@@ -11,6 +11,8 @@ public class ProgressBar : MonoBehaviour
     private int garbageCount;
     [SerializeField]
     private Image bar;
+    [SerializeField]
+    private Image currentPolaroid;
 
     private void Awake(){
     	if(instance == null){
@@ -35,6 +37,10 @@ public class ProgressBar : MonoBehaviour
     	if(bar.fillAmount >= 1f && Timer.instance != null){
     		Timer.instance.CleanPhoto();
     	}
+
+        Color newAlpha = currentPolaroid.color;
+        newAlpha.a = bar.fillAmount;
+        currentPolaroid.color = newAlpha;
     }
 
     private IEnumerator SetupBar(){
