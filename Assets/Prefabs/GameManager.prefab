@@ -53,43 +53,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2115731369030247414}
     m_Modifications:
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 1d279c16510ccb344986626d18806ff1,
-        type: 2}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 3470382162921577867, guid: 1d279c16510ccb344986626d18806ff1,
-        type: 2}
-    - target: {fileID: 8170890198030774991, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 76.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8170890198646483696, guid: f34cadd1fba410549ac1d15786caa735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -197,55 +160,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170890198646483708, guid: f34cadd1fba410549ac1d15786caa735,
         type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 5537136661280602823}
+    - target: {fileID: 8170890198646483708, guid: f34cadd1fba410549ac1d15786caa735,
+        type: 3}
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 8671886891887446615}
     - target: {fileID: 8170890198646483708, guid: f34cadd1fba410549ac1d15786caa735,
         type: 3}
-      propertyPath: winScreen
+      propertyPath: thanksScreen
       value: 
-      objectReference: {fileID: 5537136661280602823}
+      objectReference: {fileID: 5187191289819088532}
     - target: {fileID: 8170890198646483709, guid: f34cadd1fba410549ac1d15786caa735,
         type: 3}
       propertyPath: m_Name
       value: TimerCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 1d279c16510ccb344986626d18806ff1,
-        type: 2}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 3470382162921577867, guid: 1d279c16510ccb344986626d18806ff1,
-        type: 2}
-    - target: {fileID: 8170890199506085709, guid: f34cadd1fba410549ac1d15786caa735,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 116.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f34cadd1fba410549ac1d15786caa735, type: 3}
