@@ -97,6 +97,7 @@ public class Timer : MonoBehaviour
 
     public void CleanPhoto(){
     	photoCleaned = true;
+		FindObjectOfType<AudioManager>().PlayWin();
     	EndStage(photoCleaned);
     }
 }
