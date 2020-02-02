@@ -5,6 +5,8 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+	public bool isMoving;
+
     // Start is called before the first frame update
     void Start()
     {
