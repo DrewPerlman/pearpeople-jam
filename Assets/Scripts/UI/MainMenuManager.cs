@@ -22,15 +22,18 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private GameObject creditsMenu;
 
+    [SerializeField]
+    private GameObject controlMenu;
+
     private void Update(){
-    	FillP1(Input.GetKey(KeyCode.Z));
-    	FillP2(Input.GetKey(KeyCode.M));
-    	FillExit(Input.GetKey(KeyCode.Escape));
-    	FillCredits(Input.GetKey(KeyCode.O));
+    	// FillP1(Input.GetKey(KeyCode.Z));
+    	// FillP2(Input.GetKey(KeyCode.M));
+    	// FillExit(Input.GetKey(KeyCode.Escape));
+    	// FillCredits(Input.GetKey(KeyCode.O));
     	
-    	if(StartGame()){
-    		SceneManager.LoadScene(LevelToLoad);
-    	}
+    	// if(StartGame()){
+    	// 	SceneManager.LoadScene(LevelToLoad);
+    	// }
     }
 
     private void FillP1(bool keydown){
@@ -86,5 +89,22 @@ public class MainMenuManager : MonoBehaviour
     	} else{
     		return false;
     	}
+    }
+
+    //changing literally the whole dang thing
+    public void NewGame(){
+    	SceneManager.LoadScene(LevelToLoad);
+    }
+
+    public void ShowControls(){
+    	controlMenu.SetActive(true);
+    }
+
+    public void HideControls(){
+    	controlMenu.SetActive(false);
+    }
+
+    public void ExitGame(){
+    	Application.Quit();
     }
 }
