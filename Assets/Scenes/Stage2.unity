@@ -2265,7 +2265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a3eb291b6a2146442ae64d41c5f1915e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 400b94bc3df7bcc4a8641c56c3a2819c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3113,7 +3113,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentPolaroid
       value: 
-      objectReference: {fileID: 2092951389}
+      objectReference: {fileID: 590837304}
     - target: {fileID: 512745222711155373, guid: a7be94eaa6a484940a66f26dbc33f083,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3307,7 +3307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -30
-  m_Sprite: {fileID: 21300000, guid: 394954a5e03b94d40824fb95ddb1ac69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ce9fbe6cea28d24b81f70ef325e20bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3445,7 +3445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
