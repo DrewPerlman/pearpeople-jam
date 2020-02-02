@@ -32,6 +32,12 @@ public class GarbageSpawning : MonoBehaviour
 			newPosition = someObjectPosition + Random.insideUnitCircle * 3.7f;
 		}
 		//}
-		GameObject garbageInstance = Instantiate(garbagePrefab, newPosition, Quaternion.identity);
+		GameObject garbageInstance = Instantiate(garbagePrefab, newPosition, GetRandomRotation());
+	}
+
+	private Quaternion GetRandomRotation()
+	{
+		Quaternion rot = Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
+		return rot;
 	}
 }

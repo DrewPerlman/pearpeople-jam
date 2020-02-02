@@ -32,8 +32,14 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private List<Button> menuButtons = new List<Button>();
 
+	[SerializeField]
+    private AudioSource aud;
+    [SerializeField]
+    private AudioClip buttonSound;
+
     private void Awake(){
     	UpdateSelection();
+    	aud = GetComponent<AudioSource>();
     }
 
     private void Update(){
@@ -66,12 +72,13 @@ public class MainMenuManager : MonoBehaviour
 	    	}
     	}
 
-    	if(Input.GetKeyDown(KeyCode.Space)){
+    	if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)){
     		if(controlMenu.activeInHierarchy){
     				HideControls();
     			} else{
     				menuButtons[selection].onClick.Invoke();
     			}
+    			aud.PlayOneShot(buttonSound);
     	}
     	if(Input.GetKeyDown(KeyCode.Escape)){
     		if(controlMenu.activeInHierarchy){
@@ -79,6 +86,7 @@ public class MainMenuManager : MonoBehaviour
     			} else{
     				ExitGame();
     			}
+    			aud.PlayOneShot(buttonSound);
     	}
     }
 
@@ -91,7 +99,7 @@ public class MainMenuManager : MonoBehaviour
     				print(menuItems[i]);
     			}
     	}
-    	print(selection);
+    	aud.PlayOneShot(buttonSound);
     }
 
     private void FillP1(bool keydown){
