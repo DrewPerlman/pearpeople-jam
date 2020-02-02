@@ -35,5 +35,9 @@ public class ProgressBar : MonoBehaviour
 
     private void UpdateBar(){
     	bar.fillAmount = 1f - (float)garbageList.Count/(float)garbageCount;
+
+    	if(bar.fillAmount >= 1f && Timer.instance != null){
+    		Timer.instance.CleanPhoto();
+    	}
     }
 }
