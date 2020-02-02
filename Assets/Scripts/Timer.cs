@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -13,11 +14,14 @@ public class Timer : MonoBehaviour
     private GameObject winScreen;
     [SerializeField]
     private GameObject loseScreen;
+    [SerializeField]
+    private GameObject thanksScreen;
     private float timeRemaining;
     private bool photoCleaned;
     private bool started;
 
     private void Start(){
+    	thanksScreen.SetActive(false);
     	winScreen.SetActive(false);
     	loseScreen.SetActive(false);
     	Initialize();
@@ -56,8 +60,12 @@ public class Timer : MonoBehaviour
     private void EndStage(bool winState){
     	if(winState){
     			//"You can move on to the next stage"
-    			winScreen.SetActive(true);
+    		if(SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings){
+    			thanksScreen.SetActive(true);
     		} else{
+    			winScreen.SetActive(true);
+    		}
+    	} else{
     			//"You should redo this stage"
     			loseScreen.SetActive(true);
     		}
