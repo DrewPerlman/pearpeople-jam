@@ -72,7 +72,7 @@ public class MainMenuManager : MonoBehaviour
 	    	}
     	}
 
-    	if(Input.GetKeyDown(KeyCode.Space)){
+    	if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)){
     		if(controlMenu.activeInHierarchy){
     				HideControls();
     			} else{
