@@ -1414,7 +1414,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<align=center><size=56>Player 1</size></align>\n\nControl Paddle: \n<indent=15%>Controller:
-    Left/Right Trigger\nKeyboard: "
+    Left/Right Trigger\nKeyboard: A/D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d279c16510ccb344986626d18806ff1, type: 2}
   m_sharedMaterial: {fileID: 3470382162921577867, guid: 1d279c16510ccb344986626d18806ff1,
@@ -3931,7 +3931,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<align=center><size=56>Player 2</size></align>\n\nControl Paddle: \n<indent=15%>Controller:
-    Left/Right Trigger\nKeyboard: "
+    Left/Right Trigger\nKeyboard: Left/Right Arrows"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d279c16510ccb344986626d18806ff1, type: 2}
   m_sharedMaterial: {fileID: 3470382162921577867, guid: 1d279c16510ccb344986626d18806ff1,
