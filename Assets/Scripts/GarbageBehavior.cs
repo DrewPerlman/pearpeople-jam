@@ -43,10 +43,6 @@ public class GarbageBehavior : MonoBehaviour
 		transform.position = Vector2.MoveTowards(transform.position, target, theVacuum.moveTowardsSpeed);
 		if (Vector2.Distance(this.transform.position, target) < 0.2f && destroyy == false)
 		{
-			if (ProgressBar.instance != null)
-			{
-				ProgressBar.instance.RemoveEntry(this.gameObject);
-			}
 			GetComponentInChildren<SpriteRenderer>().enabled = false;
 			GetComponent<AudioSource>().Play();
 			destroyy = true;
@@ -57,5 +53,9 @@ public class GarbageBehavior : MonoBehaviour
 	{
 		destroyTimer += Time.deltaTime;
 		if (destroyTimer > 1f) { Destroy(this.gameObject); }
+		if (ProgressBar.instance != null)
+		{
+			ProgressBar.instance.RemoveEntry(this.gameObject);
+		}
 	}
 }
